@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta property="og:title" content="铅笔先生设计官网"><meta property="og:image" content="https://lf3-static.bytednsdoc.com/obj/eden-cn/ylcylz_fsph_ryhs/ljhwZthlaukjlkulzlp/feisuda/avatar/5.svg">
-<meta charset="UTF-8">
+<html data-src-ver="f5e4f8e3" lang="zh-CN">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>铅笔先生 · 独立设计工作室</title>
 <meta name="description" content="铅笔先生是一家独立设计工作室。建筑、空间、品牌、插画，从一张白纸、一支铅笔开始。">
@@ -283,16 +282,57 @@ a{color:inherit}
 }
 .btn:hover{opacity:.86;transform:translateY(-1px)}
 
-/* ============ 作品页 ============ */
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:clamp(22px,3vw,34px)}
-.chip{
-  font:inherit;font-size:12.5px;color:var(--muted);background:transparent;
-  border:1px solid var(--line-soft);padding:7px 15px;cursor:pointer;
-  transition:all .22s var(--ease);
+/* ============ 作品页 · 悬浮碎片分类 ============ */
+/* 分类不再是横排按钮，而是散落在纸面上的几块碎纸片：
+   每片带 LOG 编号，悬停放大并停住漂浮，点击即筛选 */
+.shard-field{
+  position:sticky;top:0;z-index:20;
+  height:clamp(124px,12vw,144px);
+  margin:0 calc(var(--pad) * -1) clamp(6px,1vw,14px);
+  padding:0 var(--pad);
+  background:#FCFCF7;
+  border-bottom:1px solid var(--line-soft);
+  box-shadow:0 14px 18px -18px rgba(20,20,20,.35);
 }
-.chip:hover{border-color:var(--line);color:var(--ink)}
-.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.shard{
+  position:absolute;display:block;
+  font:inherit;background:none;border:0;padding:0;cursor:pointer;
+  transform:rotate(var(--r,0deg));
+  animation:shardDrift 8.5s ease-in-out infinite;
+  animation-delay:var(--d,0s);
+  filter:drop-shadow(0 10px 9px rgba(20,20,20,.13));
+  transition:opacity .35s var(--ease),filter .5s var(--ease);
+}
+.shard .shard-in{
+  display:flex;flex-direction:column;align-items:flex-start;gap:0;
+  padding:12px 20px 13px;
+  background:linear-gradient(168deg,#FFFEF7 0%,#F5F0DF 100%);
+  clip-path:polygon(0 7%,5% 0,96% 3%,100% 9%,98.5% 92%,92% 100%,6% 96%,1.5% 88%);
+  box-shadow:inset 0 0 0 1px rgba(20,20,20,.16);
+  transition:transform .5s var(--ease),background .3s,box-shadow .5s var(--ease);
+}
+.shard-log{
+  font-size:9px;letter-spacing:.22em;color:var(--dim);
+  font-variant-numeric:tabular-nums;line-height:1.5;
+  transition:color .3s;white-space:nowrap;
+}
+.shard-name{
+  font-size:14.5px;letter-spacing:.06em;color:var(--ink);line-height:1.25;
+  white-space:nowrap;transition:color .3s;
+}
+.chip.shard:hover,.chip.shard:focus-visible{animation-play-state:paused;z-index:6;filter:drop-shadow(0 18px 16px rgba(20,20,20,.2))}
+.chip.shard:hover .shard-in,
+.chip.shard:focus-visible .shard-in{transform:scale(1.14);box-shadow:inset 0 0 0 1px rgba(20,20,20,.2)}
+.chip.shard.on .shard-in{background:linear-gradient(168deg,#1C1C1A 0%,#101010 100%);box-shadow:inset 0 0 0 1px rgba(252,252,247,.12)}
+.chip.shard.on .shard-name{color:var(--paper)}
+.chip.shard.on .shard-log{color:rgba(252,252,247,.55)}
+.shard-field:hover .chip.shard:not(:hover):not(.on){opacity:.66}
+@keyframes shardDrift{
+  0%,100%{transform:rotate(var(--r,0deg)) translateY(0)}
+  50%{transform:rotate(calc(var(--r,0deg) + .6deg)) translateY(-7px)}
+}
 .count-line{font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-bottom:26px;display:flex;gap:8px;align-items:baseline}
+#worksGrid{scroll-margin-top:190px}
 .count-line b{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
 
 /* ============ 关于页 ============ */
@@ -639,6 +679,12 @@ body.has-tray .main{padding-bottom:84px}
   .lb-bar{font-size:11px}
   .lib-grid{grid-template-columns:repeat(2,1fr)}
   .lib-actions .btn{width:auto}
+  .shard-field{top:56px;height:auto;display:flex;flex-wrap:wrap;gap:9px;padding:12px var(--pad) 14px}
+  .chip.shard{position:static;transform:none;animation:none}
+  .shard .shard-in{padding:9px 15px 10px}
+  .shard-log{font-size:8.5px;letter-spacing:.18em}
+  .shard-name{font-size:13px}
+  #worksGrid{scroll-margin-top:150px}
 }
 @media (max-width:560px){
   body{font-size:14px}
@@ -811,12 +857,23 @@ body.has-tray .main{padding-bottom:84px}
         <p class="sec-desc">每一件作品都从一张草图开始。线条先站住，形体才成立。</p>
       </div>
 
-      <div class="chips" id="chips">
-        <button class="chip on" data-cat="all">全部</button>
-        <button class="chip" data-cat="建筑">建筑</button>
-        <button class="chip" data-cat="插画">插画</button>
-        <button class="chip" data-cat="素描">素描</button>
-        <button class="chip" data-cat="品牌">品牌形象</button>
+      <!-- 悬浮碎片分类：散落在纸面上，悬停放大，点击进入对应分类 -->
+      <div class="shard-field" id="chips" role="group" aria-label="作品分类">
+        <button class="chip shard on" data-cat="all" style="left:2%;top:50px;--r:-3.5deg;--d:0s" aria-pressed="true">
+          <span class="shard-in"><span class="shard-log">LOG 01</span><span class="shard-name">全部</span></span>
+        </button>
+        <button class="chip shard" data-cat="建筑" style="left:20%;top:10px;--r:2.6deg;--d:-1.6s" aria-pressed="false">
+          <span class="shard-in"><span class="shard-log">LOG 02</span><span class="shard-name">建筑</span></span>
+        </button>
+        <button class="chip shard" data-cat="插画" style="left:39%;top:56px;--r:-2.2deg;--d:-3.2s" aria-pressed="false">
+          <span class="shard-in"><span class="shard-log">LOG 03</span><span class="shard-name">插画</span></span>
+        </button>
+        <button class="chip shard" data-cat="素描" style="left:57%;top:13px;--r:3.6deg;--d:-4.5s" aria-pressed="false">
+          <span class="shard-in"><span class="shard-log">LOG 04</span><span class="shard-name">素描</span></span>
+        </button>
+        <button class="chip shard" data-cat="品牌" style="left:74%;top:52px;--r:-5deg;--d:-2.4s" aria-pressed="false">
+          <span class="shard-in"><span class="shard-log">LOG 05</span><span class="shard-name">品牌形象</span></span>
+        </button>
       </div>
 
       <div class="count-line"><b id="workCount">05</b><span>件作品 · 点击查看大图</span></div>
@@ -1320,8 +1377,9 @@ body.has-tray .main{padding-bottom:84px}
   var chips = $$('.chip');
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){
-      chips.forEach(function(x){ x.classList.remove('on'); });
+      chips.forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed', 'false'); });
       chip.classList.add('on');
+      chip.setAttribute('aria-pressed', 'true');
 
       var f = chip.getAttribute('data-cat');
       var plates = $$('#worksGrid .plate');
@@ -1336,6 +1394,13 @@ body.has-tray .main{padding-bottom:84px}
 
       var count = plates.filter(function(p){ return p.style.display !== 'none'; }).length;
       $('#workCount').textContent = count < 10 ? '0' + count : String(count);
+
+      /* 已滚到作品列表里时，点碎片把列表拉回视野，进入该分类查看 */
+      var grid = $('#worksGrid');
+      if (grid && grid.getBoundingClientRect().top < 80){
+        if (grid.scrollIntoView) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else window.scrollTo(0, grid.offsetTop - 190);
+      }
     });
   });
 
