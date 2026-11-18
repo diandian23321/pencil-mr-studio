@@ -708,7 +708,10 @@ body.has-tray .main{padding-bottom:84px}
    这里统一按完整版本播，任何机器打开都一样。
    兜底仍在 JS：盖板 1.15s 后被无条件摘掉，就算动画没跑起来也不会挡住页面 */
 
+
+picture{display:contents}
 </style>
+<link rel="preload" as="image" href="assets/opt/title-pencil-mr.avif" type="image/avif" fetchpriority="high">
 </head>
 <body>
 
@@ -755,7 +758,7 @@ body.has-tray .main{padding-bottom:84px}
   <!-- ============ 首页 ============ -->
   <section class="view on" id="view-home">
     <div class="cover">
-      <img src="assets/opt/title-pencil-mr.webp" alt="铅笔先生 手绘标识" width="1800" height="1012">
+      <picture><source type="image/avif" srcset="assets/opt/title-pencil-mr.avif"><img src="assets/opt/title-pencil-mr.webp" fetchpriority="high" alt="铅笔先生 手绘标识" width="1080" height="615"></picture>
       <span class="pm-trail" aria-hidden="true"></span>
       <span class="pm-mark" aria-hidden="true">
         <svg class="pm-svg" viewBox="0 0 170 44">
@@ -799,7 +802,7 @@ body.has-tray .main{padding-bottom:84px}
 
       <button class="plate plate--hero" data-cat="建筑" data-img="assets/opt/creative-architecture.webp" data-cap="概念建筑设计 · 建筑设计 / 2025">
         <span class="frame frame--wide" style="display:block">
-          <img src="assets/opt/creative-architecture.webp" alt="概念建筑设计方案草图" loading="lazy" decoding="async">
+          <picture><source type="image/avif" srcset="assets/opt/creative-architecture.avif"><img src="assets/opt/creative-architecture.webp" alt="概念建筑设计方案草图" loading="lazy" decoding="async"></picture>
         </span>
         <span class="cap">
           <span class="cap-no">01</span>
@@ -811,7 +814,7 @@ body.has-tray .main{padding-bottom:84px}
       <div class="grid2" style="margin-top:clamp(18px,2.6vw,34px)">
         <button class="plate" data-cat="插画" data-img="assets/opt/city-portrait.webp" data-cap="城市与人物 · 插画 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/city-portrait.webp" alt="城市与人物 钢笔插画" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/city-portrait.avif"><img src="assets/opt/city-portrait.webp" alt="城市与人物 钢笔插画" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">02</span>
@@ -821,7 +824,7 @@ body.has-tray .main{padding-bottom:84px}
         </button>
         <button class="plate" data-cat="插画" data-img="assets/opt/pencil-tree-city.webp" data-cap="铅笔之城 · 概念插画 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/pencil-tree-city.webp" alt="铅笔之城 概念插画" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/pencil-tree-city.avif"><img src="assets/opt/pencil-tree-city.webp" alt="铅笔之城 概念插画" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">05</span>
@@ -833,7 +836,7 @@ body.has-tray .main{padding-bottom:84px}
     </div>
 
     <div class="band">
-      <img src="assets/opt/pencil-tree-city.webp" alt="一支铅笔在纸上长成树与城市" loading="lazy" decoding="async">
+      <picture><source type="image/avif" srcset="assets/opt/pencil-tree-city.avif"><img src="assets/opt/pencil-tree-city.webp" alt="一支铅笔在纸上长成树与城市" loading="lazy" decoding="async"></picture>
       <div class="band-cap">
         <span>铅笔之城 · 概念插画</span>
         <em>一支铅笔在纸上长成了树，树又长成了一座城。</em>
@@ -881,7 +884,7 @@ body.has-tray .main{padding-bottom:84px}
       <div class="grid2" id="worksGrid">
         <button class="plate plate--hero" data-hero="1" data-cat="建筑" data-img="assets/opt/creative-architecture.webp" data-cap="概念建筑设计 · 建筑设计 / 2025">
           <span class="frame frame--wide" style="display:block">
-            <img src="assets/opt/creative-architecture.webp" alt="概念建筑设计方案草图" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/creative-architecture.avif"><img src="assets/opt/creative-architecture.webp" alt="概念建筑设计方案草图" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">01</span>
@@ -892,7 +895,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <button class="plate" data-cat="插画" data-img="assets/opt/city-portrait.webp" data-cap="城市与人物 · 插画 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/city-portrait.webp" alt="城市与人物 钢笔插画" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/city-portrait.avif"><img src="assets/opt/city-portrait.webp" alt="城市与人物 钢笔插画" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">02</span>
@@ -903,7 +906,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <button class="plate" data-cat="素描" data-img="assets/opt/figure-sketch.webp" data-cap="人体动态速写 · 素描 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/figure-sketch.webp" alt="人体动态速写" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/figure-sketch.avif"><img src="assets/opt/figure-sketch.webp" alt="人体动态速写" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">03</span>
@@ -914,7 +917,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <button class="plate" data-cat="品牌" data-img="assets/opt/hero-pencil-mr.webp" data-cap="铅笔先生 IP 形象 · 品牌形象 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/hero-pencil-mr.webp" alt="铅笔先生 IP 形象" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/hero-pencil-mr.avif"><img src="assets/opt/hero-pencil-mr.webp" alt="铅笔先生 IP 形象" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">04</span>
@@ -925,7 +928,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <button class="plate" data-cat="插画" data-img="assets/opt/pencil-tree-city.webp" data-cap="铅笔之城 · 概念插画 / 2025">
           <span class="frame" style="display:block">
-            <img src="assets/opt/pencil-tree-city.webp" alt="铅笔之城 概念插画" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/pencil-tree-city.avif"><img src="assets/opt/pencil-tree-city.webp" alt="铅笔之城 概念插画" loading="lazy" decoding="async"></picture>
           </span>
           <span class="cap">
             <span class="cap-no">05</span>
@@ -946,7 +949,7 @@ body.has-tray .main{padding-bottom:84px}
       </div>
 
       <div class="band" style="border:0">
-        <img src="assets/opt/pencil-mr-working.webp" alt="铅笔先生在工作室案头起稿" loading="lazy" decoding="async">
+        <picture><source type="image/avif" srcset="assets/opt/pencil-mr-working.avif"><img src="assets/opt/pencil-mr-working.webp" alt="铅笔先生在工作室案头起稿" loading="lazy" decoding="async"></picture>
       </div>
 
       <div class="about-body">
@@ -1002,7 +1005,7 @@ body.has-tray .main{padding-bottom:84px}
       <div class="cases">
         <article class="case-row">
           <a class="frame" href="#/case/architecture" style="display:block">
-            <img src="assets/opt/case-architecture.webp" alt="社区文化中心 建筑设计草图" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/case-architecture.avif"><img src="assets/opt/case-architecture.webp" alt="社区文化中心 建筑设计草图" loading="lazy" decoding="async"></picture>
           </a>
           <div class="case-body">
             <div class="case-tag">ARCHITECTURE · 建筑设计</div>
@@ -1019,7 +1022,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <article class="case-row">
           <a class="frame" href="#/case/brand" style="display:block">
-            <img src="assets/opt/case-brand.webp" alt="独立咖啡品牌全案草图" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/case-brand.avif"><img src="assets/opt/case-brand.webp" alt="独立咖啡品牌全案草图" loading="lazy" decoding="async"></picture>
           </a>
           <div class="case-body">
             <div class="case-tag">BRANDING · 品牌设计</div>
@@ -1036,7 +1039,7 @@ body.has-tray .main{padding-bottom:84px}
 
         <article class="case-row">
           <a class="frame" href="#/case/interior" style="display:block">
-            <img src="assets/opt/case-interior.webp" alt="城市书店空间设计草图" loading="lazy" decoding="async">
+            <picture><source type="image/avif" srcset="assets/opt/case-interior.avif"><img src="assets/opt/case-interior.webp" alt="城市书店空间设计草图" loading="lazy" decoding="async"></picture>
           </a>
           <div class="case-body">
             <div class="case-tag">INTERIOR · 室内设计</div>
@@ -1354,7 +1357,7 @@ body.has-tray .main{padding-bottom:84px}
 
     $('#caseMount').innerHTML =
       '<div class="pj-top"><a class="link-arrow" href="#/cases">← 返回案例</a><span>' + c.no + ' / ' + c.tag + '</span></div>' +
-      '<div class="pj-media"><img src="' + c.cover + '" alt="' + c.title + ' 手绘草图"></div>' +
+      '<div class="pj-media"><picture><source type="image/avif" srcset="' + c.cover.replace(/\.webp$/, ".avif") + '"><img src="' + c.cover + '" alt="' + c.title + ' 手绘草图"></picture></div>' +
       '<div class="pj-info">' +
         '<div class="pj-cell"><span>类型</span><i>' + c.kind + '</i></div>' +
         '<div class="pj-cell"><span>年份</span><i>' + c.year + '</i></div>' +
